@@ -29,8 +29,8 @@ async def ass_get_dialogs():
     )
     return await client(get_dialogs)
 
-with TelegramClient(username, api_id, api_hash) as client:
-    client.send_message('me', 'Hello, myself!')
+with TelegramClient(session=username, api_id=api_id, api_hash=api_hash) as client:
+    client.loop.run_until_complete(client.send_message('me', 'Hello, myself!'))
     client.connect()
 
     client2 = create_client(username)
