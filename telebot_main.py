@@ -1,6 +1,6 @@
 import requests
 import telebot
-from tele_key import token
+from tele_key import MAIN_TOKEN as token
 URL = 'https://api.telegram.org/bot' + token + '/'
 
 
@@ -17,7 +17,7 @@ bot = telebot.TeleBot(token)
 
 def get_updates():
     url = URL + 'get_updates'
-    r = requests.get(url, proxies=TG_PROXY,)
+    r = requests.get(url, proxies=TG_PROXY)
     return r.json
 
 
@@ -25,9 +25,9 @@ def get_updates():
 def send_welcome(message):
     bot.reply_to(message, "Howdy, how are you doing?")
 
-#
-# if __name__ == '__main__':
-    # get_updates()
+
+if __name__ == '__main__':
+    get_updates()
 
 
 
