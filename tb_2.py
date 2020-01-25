@@ -4,22 +4,22 @@ from tele_key import MAIN_TOKEN as token
 
 import proxyscrape
 #
-collector = proxyscrape.create_collector('default', 'https')  # Create a collector for http resources
-proxy = collector.get_proxy({'country': 'united states'})  # Retrieve a united states proxy
-
-proxy_2 = {
-    proxy.type: f"https://{proxy.host}:{proxy.port}"
-}
-
-proxy_1 = {
-    'https': 'socks5h://198.50.217.202:1080',
-    'http': 'socks5h://198.50.217.202:1080'
-}
-
-proxy_3 = {
-    'https': 'socks5://telegram.vpn99.net:55655',
-    'http': 'socks5://telegram.vpn99.net:55655'
-}
+# collector = proxyscrape.create_collector('default', 'https')  # Create a collector for http resources
+# proxy = collector.get_proxy({'country': 'united states'})  # Retrieve a united states proxy
+#
+# proxy_2 = {
+#     proxy.type: f"socks5h://{proxy.host}:{proxy.port}"
+# }
+#
+# proxy_1 = {
+#     'https': 'socks5h://198.50.217.202:1080',
+#     'http': 'socks5h://198.50.217.202:1080'
+# }
+#
+# proxy_3 = {
+#     'https': 'socks5://telegram.vpn99.net:55655',
+#     'http': 'socks5://telegram.vpn99.net:55655'
+# }
 
 # ip = '195.201.137.246'
 # port = '1080'
@@ -27,16 +27,23 @@ proxy_3 = {
 # apihelper.proxy = {
 #   'https': 'socks5://{}:{}'.format(ip, port)
 # }
-proxy_4 = {'proxy_url': 'socks4://171.103.9.22:4145/'}
+# proxy_4 = {'proxy_url': 'socks4://171.103.9.22:4145/'}
+#
+# proxy_list = [
+#     "79.143.180.10:15719"
+# ]
+#
+# proxy_crt = {"https": f"socks5://{proxy_list[0]}"}
+#
+# own_proxy = {
+#     "https": "socks5://dijedodol:demo@0.0.0.0:1080",
+#     "http": "socks5://dijedodol:demo@0.0.0.0:1080"
+# }
 
-proxy_list = [
-    "79.143.180.10:15719"
-]
-
-proxy_crt = {"https": f"socks5://{proxy_list[0]}"}
+   # {"https": f"socks5h://dijedodol:demo@0.0.0.0:1080"}
 
 bot = telebot.TeleBot(token)
-apihelper.proxy = proxy_crt # {'http': 'http://10.10.1.10:3128'}
+# apihelper.proxy = own_proxy  # {'http': 'http://10.10.1.10:3128'}
 # apihelper.proxy = {
 #   'http', 'socks5://login:pass@12.11.22.33:8000',
 #   'https', 'socks5://login:pass@12.11.22.33:8000'
@@ -54,7 +61,7 @@ def echo_all(message):
 
 
 # bot.polling
-# get_me_msg = bot.get_me()
+user = bot.get_me()
 
 res = bot.get_updates()
 last_upd = res[-1]
